@@ -4,7 +4,6 @@ var tamanhoFrase = $("#tamanho-frase");
 tamanhoFrase.text("900");//.text nesse caso substitui a informaçao na var (no html)
 
 var campo = $(".campo-digitacao");
-
 campo.on("input",function(){ //on() funcao de clique, function () anonima, input = sem clicar
     var conteudo = campo.val();
 
@@ -13,7 +12,21 @@ campo.on("input",function(){ //on() funcao de clique, function () anonima, input
 
     var qtdCaracteres = conteudo.length;
     $("#contador-caracteres").text(qtdCaracteres);
-} )
+});
+
+var tempoRestante = $("#tempo-digitacao").text();
+campo.one("focus", function(){
+    var cronometroID = setInterval(function(){
+        tempoRestante--;
+        console.log("tempoRestante");
+        $("#tempo-digitacao").text(tempoRestante);
+        if(tempoRestante < 1){
+            campo.attr("disabled", true);
+            clearInterval(cronometroID);
+        }
+    }, 1000);
+
+});
 
 
 
