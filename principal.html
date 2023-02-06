@@ -2,13 +2,14 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/public/css/libs/materialize.min.css">
     <title>Contador de Palavras</title>
 </head>
 <body>
-    <h1>Contador de Palavras</h1>
-    <p class="frase">Essa frase contém cinco palavras</p>
+    <h1 class="center">Contador de Palavras</h1>
+    <p class="frase center">Essa frase contém cinco palavras</p>
 
-    <ul class="informacoes">
+    <ul class="informacoes center">
         <li><span id="tamanho-frase">5</span> palvaras</li>
         <li><span id="tempo-digitacao">10</span> segundos</li>
     </ul>
@@ -16,7 +17,7 @@
     <textarea class="campo-digitacao" cols="40" rows="18"></textarea>
     <button id="botao-reiniciar">Reiniciar Jogo</button>
 
-    <ul>
+    <ul class="center">
         <li><span id="contador-caracteres">0</span> caracteres</li> <!--span coloca onde precisa alterar usando JS-->
         <li><span id="contador-palavras">0</span> palavras</li>
     </ul>

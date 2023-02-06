@@ -1,3 +1,14 @@
+var tempoInicial = $("#tempo-digitacao").text();
+var campo = $(".campo-digitacao");
+
+
+$(document).ready(function(){
+    atualizaTamanhoFrase();
+    inicializaContadores();
+    inicializaCronometro();
+    $("#botao-reiniciar").click(reiniciaJogo);
+
+});
 
 function atualizaTamanhoFrase(){
     var frase = $(".frase").text();//posso usar jQuery ou $, .text ele acessa o texto do elemento
@@ -6,7 +17,6 @@ function atualizaTamanhoFrase(){
     tamanhoFrase.text("900");//.text nesse caso substitui a informaçao na var (no html)
 }
 
-var campo = $(".campo-digitacao");
 
 function inicializaContadores(){
     campo.on("input",function(){ //on() funcao de clique, function () anonima, input = sem clicar
@@ -35,13 +45,17 @@ function inicializaCronometro(){
 }
 
 
-
-$("#botao-reiniciar").click(function(){
+function reiniciaJogo(){
     campo.attr("disabled", false);
     campo.val("");
     $("#contador-palavras").text("0");
     $("#contador-caracteres").text("0");
-});
+    $("#tempo-digitacao").text(tempoInicial);
+    inicializaCronometro();
+}
+
+
+
 
 
 
